@@ -60,7 +60,7 @@ void menu()
 {
     char choice;
     printf("\t\t*************************************************");
-    printf("\n\t\t  *** WELCOME TO COVID RECORD SYSTEM ***");
+    printf("\n\t\t  *** WELCOME TO COVID RECORD SYSTEM Kaisa h ***");
     printf("\n\t\t  ***          AAA HOSPITAL          ***");
     printf("\n\t\t  ***           COVID WARD           ***");
     printf("\n\t\t  ***           1st FLOOR            ***");
