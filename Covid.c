@@ -2,61 +2,71 @@
 #include<conio.h>
 #include<stdlib.h>
 #include<string.h>
-void clrscr(void)
+
+void clrscr(void)//function for clearing screen
 {
-    system("cls()");
+    system("cls()");//To clear screen
 }
-void emp(void);
-void menu(void);
-void pat(void);
-void inv(void);
-struct address
+
+void emp(void);//To edit employ record
+
+void menu(void);//Main Menu
+
+void pat(void);//To add/search/edit patient record
+
+void inv(void);//To add/search/edit item in inventory
+
+struct address//Structure for address
 {
-    int hno;
-    char street[40];
-    char city[40];
-    char state[40];
+    int hno;//House No
+    char street[40];//Street Name
+    char city[40];//City Name
+    char state[40];//State Name
 };
-struct patient
+
+struct patient//Structure for patient
 {
-    char name[40];
-    char fname[40];
-    int age;
-    char bg[3];
-    char gender;
-    char regn[10];
-    struct address a;
-    char ph[10];
-    char disease[60];
-    char doc_name[40];
-    char history[200];
-    char date[10];
-    char treatment[40];
-    char med[40];
+    char name[40];//Patient Name
+    char fname[40];//Father Name
+    int age;//Age
+    char bg[3];//Blood Group
+    char gender;//Gender
+    char regn[10];//Registration No
+    struct address a;//Address Structure for address
+    char ph[10];//Phone No
+    char disease[60];//Disease-> Remove it as disease is covid only
+    char doc_name[40];//Doctor Name
+    char history[200];//Treatement History
+    char date[10];//Date of Treatement
+    char treatment[40];//Treatment Given
+    char med[40];//Medicine Prescribed
 };
-struct staff
+
+struct staff//Structure for staff data entry
 {
-    char name[40];
-    char fname[40];
-    int age;
-    char bg[3];
-    char gender;
-    char uid[10];
-    struct address b;
-    char ph[10];
-    double salary;
-    char desig[40];
+    char name[40];//Staff Name
+    char fname[40];//Staff father name
+    int age;//Staff Age
+    char bg[3];//Blood Group
+    char gender;//Staff Gender
+    char uid[10];//Staff ID
+    struct address b;//Staff Address
+    char ph[10];//Staff Phone No.
+    double salary;//Staff Salary
+    char desig[40];//Staff Designation
 };
-struct inventory
+
+struct inventory//Structure for items in the inventory
 {
-    int sno;
-    char name[30];
-    char dop[20];
-    int qnty;
-    float price;
-    float amount;
+    int sno;//item no
+    char name[30];//item name
+    char dop[20];//Date of Purchase
+    int qnty;//item quantity
+    float price;//item price
+    float amount;//total amount =qnty*price
 };//check
-void menu()
+
+void menu()//Menu of program
 {
     char choice;
     printf("\t\t*************************************************");
@@ -66,13 +76,13 @@ void menu()
     printf("\n\t\t  ***           1st FLOOR            ***");
     printf("\n\t\t*************************************************");
     printf("\n\n\n\n\n\n\n");
-    printf("\t\t1.COVID PATIENT");
-    printf("\n\t\t2.STAFF");
-    printf("\n\t\t3.INVENTORY");
-    printf("\n\t\t0.EXIT");
+    printf("\t\t1.COVID PATIENT");//pat()
+    printf("\n\t\t2.STAFF");//emp()
+    printf("\n\t\t3.INVENTORY");//inv()
+    printf("\n\t\t0.EXIT");//exit
     printf("\n\n\tEnter your choice: ");
-    fflush(stdin);
-    choice=getche();
+    fflush(stdin);//to clear the previous input taken(inbuilt function)
+    choice=getche();//getche moves forward as soon as a single input is given i.e no enter is required
     switch(choice)
         {
             case '1':
@@ -88,11 +98,13 @@ void menu()
                 exit(1);
         }
 }//check
+
 void main()
 {
-    system("COLOR 74");
+    system("COLOR 74");//to colour the screen
     menu();
 }
+
 void pat()
 {
     FILE *fp,*ft;
