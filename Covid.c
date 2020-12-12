@@ -70,7 +70,7 @@ void menu()//Menu of program
 {
     char choice;
     printf("\t\t*************************************************");
-    printf("\n\t\t  *** WELCOME TO COVID RECORD SYSTEM ***");
+    printf("\n\t\t  *** WELCOME TO COVID RECORD SYSTEM: Aapka swagat h ***");
     printf("\n\t\t  ***          AAA HOSPITAL          ***");
     printf("\n\t\t  ***           COVID WARD           ***");
     printf("\n\t\t  ***           1st FLOOR            ***");
