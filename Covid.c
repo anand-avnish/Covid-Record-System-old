@@ -22,19 +22,21 @@ struct address//Structure for address
     char street[40];//Street Name
     char city[40];//City Name
     char state[40];//State Name
+    char pin[7];//Pincode
 };
 
 struct patient//Structure for patient
 {
     char name[40];//Patient Name
-    char fname[40];//Father Name
+    char rname[40];//Relative Name
     int age;//Age
     char bg[3];//Blood Group
     char gender;//Gender
     char regn[10];//Registration No
     struct address a;//Address Structure for address
     char ph[10];//Phone No
-    char disease[60];//Disease-> Remove it as disease is covid only
+    char rph[10];//Relation Phone No.
+    //char disease[60];//Disease-> Remove it as disease is covid only
     char doc_name[40];//Doctor Name
     char history[200];//Treatement History
     char date[10];//Date of Treatement
@@ -45,13 +47,14 @@ struct patient//Structure for patient
 struct staff//Structure for staff data entry
 {
     char name[40];//Staff Name
-    char fname[40];//Staff father name
+    char fname[40];//Staff relative name
     int age;//Staff Age
     char bg[3];//Blood Group
     char gender;//Staff Gender
     char uid[10];//Staff ID
     struct address b;//Staff Address
     char ph[10];//Staff Phone No.
+    char rph[10];//Additional Phone no.
     double salary;//Staff Salary
     char desig[40];//Staff Designation
 };
@@ -163,10 +166,10 @@ void pat()
                                     fseek (fp,0,SEEK_END);
                                     strcpy(p.regn,reg);
                                     fflush(stdin);
-                                    printf("\nEnter the name of the patient: ");
+                                    printf("\nEnter the name of the corona patient: ");
                                     gets(p.name);
-                                    printf("\nEnter the name of the Guardian: ");
-                                    gets(p.fname);
+                                    printf("\nEnter the name of the relative: ");
+                                    gets(p.rname);
                                     printf("\nEnter the gender of the patient(M.male or F.female): ");
                                     scanf("%c",&p.gender);
                                     fflush(stdin);
@@ -183,13 +186,17 @@ void pat()
                                     scanf("%s",p.a.street);
                                     printf("\n\tEnter the city: ");
                                     scanf("%s",p.a.city);
+                                    printf("\n\tEnter the Pin Code: ");
+                                    scanf("%s",p.a.pin);
                                     printf("\n\tEnter the state: ");
                                     scanf("%s",p.a.state);
                                     printf("\nEnter the phone number of the patient: ");
                                     scanf("%s",p.ph);
+                                    printf("\nEnter the phone number of the relative: ");
+                                    scanf("%s",p.rph);
                                     fflush(stdin);
-                                    printf("\nEnter the Disease or problem for which he/she wants treatment: ");
-                                    gets(p.disease);
+                                    //printf("\nEnter the Disease or problem for which he/she wants treatment: ");
+                                    //gets(p.disease);
                                     printf("\nEnter the name of the Doctor to which he/she being referred: ");
                                     gets(p.doc_name);
                                     printf("\nEnter the history, if any, related to treatment of the patient(If yes then write 'Y' if NO then write 'N'): ");
@@ -233,8 +240,8 @@ void pat()
                                                     fflush(stdin);
                                                     printf("\nEnter the new name of the patient: ");
                                                     gets(p.name);
-                                                    printf("\nEnter the new name of the Guardian: ");
-                                                    gets(p.fname);
+                                                    printf("\nEnter the new name of the Relative: ");
+                                                    gets(p.rname);
                                                     printf("\nEnter the new Blood group of the patient: ");
                                                     scanf("%s",p.bg);
                                                     printf("\nEnter the new age of the patient: ");
@@ -247,10 +254,14 @@ void pat()
                                                     scanf("%s",p.a.street);
                                                     printf("\n\tEnter the city: ");
                                                     scanf("%s",p.a.city);
+                                                    printf("\n\tEnter the Pin Code: ");
+                                                    scanf("%s",p.a.pin);
                                                     printf("\n\tEnter the state: ");
                                                     scanf("%s",p.a.state);
                                                     printf("\nEnter the new phone number of the patient: ");
                                                     scanf("%s",p.ph);
+                                                    printf("\nEnter the new phone number of the relative: ");
+                                                    scanf("%s",p.rph);
                                                     fflush(stdin);
                                                     printf("enter the date of treatment given: ");
                                                     gets(p.date);
@@ -285,14 +296,15 @@ void pat()
                                                         puts(p.regn);
                                                         printf("\nName of the Patient : ");
                                                         puts(p.name);
-                                                        printf("\nName of the Guardian : ");
-                                                        puts(p.fname);
+                                                        printf("\nName of the Relative : ");
+                                                        puts(p.rname);
                                                         printf("\nAge : %d",p.age);
                                                         printf("\nGender : %c",p.gender);
                                                         printf("\nBlood group: %s",p.bg);
-                                                        printf("\nAddress  : %d,%s,%s,%s",p.a.hno,p.a.street,p.a.city,p.a.state);
-                                                        printf("\nphone number : +91-%s",p.ph);
-                                                        printf("\nDisease : %s",p.disease);
+                                                        printf("\nAddress  : %d,%s,%s,%s,%s",p.a.hno,p.a.street,p.a.city,p.a.pin,p.a.state);
+                                                        printf("\nPatient Phone number : +91-%s",p.ph);
+                                                        printf("\nRelative Phone number : +91-%s",p.rph);
+                                                        //printf("\nDisease : %s",p.disease);
                                                         printf("\nEarlier History : ");
                                                         puts(p.history);
                                                         printf("\nDetails of treatment given and medicine prescribed:");
@@ -317,14 +329,15 @@ void pat()
                                             puts(p.regn);
                                             printf("\nName of the Patient : ");
                                             puts(p.name);
-                                            printf("\nName of the Guardian : ");
-                                            puts(p.fname);
+                                            printf("\nName of the Relative : ");
+                                            puts(p.rname);
                                             printf("\nAge : %d",p.age);
                                             printf("\nGender : %c",p.gender);
                                             printf("\nBlood group: %s",p.bg);
-                                            printf("\nAddress  : %d,%s,%s,%s",p.a.hno,p.a.street,p.a.city,p.a.state);
-                                            printf("\nphone number : +91-%s",p.ph);
-                                            printf("\nDisease : %s",p.disease);
+                                            printf("\nAddress  : %d,%s,%s,%s,%s",p.a.hno,p.a.street,p.a.city,p.a.pin,p.a.state);
+                                            printf("\nPatient phone number : +91-%s",p.ph);
+                                            printf("\nRelative phone number : +91-%s",p.rph);
+                                            //printf("\nDisease : %s",p.disease);
                                             printf("\nEarlier History : ");
                                             puts(p.history);
                                             printf("\nDetails of treatment given and medicine prescribed:");
@@ -432,9 +445,9 @@ void emp()
                                     fflush(stdin);
                                     printf("\nEnter the name of the Employee: ");
                                     gets(s.name);
-                                    printf("\nEnter the name of the Guardian: ");
-                                    gets(s.fname);
-                                    printf("\nEnter the gender of the patient(M.male or F.female): ");
+                                    printf("\nEnter the name of the Relative: ");
+                                    gets(s.rname);
+                                    printf("\nEnter the gender of the Employee(M.male or F.female): ");
                                     scanf("%c",&s.gender);
                                     printf("\nEnter the Blood group of the Employee: ");
                                     scanf("%s",s.bg);
@@ -450,10 +463,14 @@ void emp()
                                     scanf("%s",s.b.street);
                                     printf("\n\tEnter the city: ");
                                     scanf("%s",s.b.city);
+                                    printf("\n\tEnter the pin code: ");
+                                    scanf("%s",s.b.pin);
                                     printf("\n\tEnter the state: ");
                                     scanf("%s",s.b.state);
                                     printf("\nEnter the phone number of the Employee: ");
                                     scanf("%s",s.ph);
+                                    printf("\nEnter the additional phone number of the Employee: ");
+                                    scanf("%s",s.rph);
                                     fflush(stdin);
                                     printf("\nEnter the Designation: ");
                                     gets(s.desig);
@@ -470,7 +487,7 @@ void emp()
                         more='Y';
                         while(more=='Y'||more=='y')
                             {
-                                printf("\nEnter the UID of the patient to modify: ");
+                                printf("\nEnter the UID of the employee to modify: ");
                                 scanf("%s",id);
                                 rewind(fs);
                                 while(fread(&s,recsize1,1,fs)==1)
@@ -480,8 +497,8 @@ void emp()
                                                 fflush(stdin);
                                                 printf("\nEnter the new name of the Employee: ");
                                                 gets(s.name);
-                                                printf("\nEnter the new name of the Guardian: ");
-                                                gets(s.fname);
+                                                printf("\nEnter the new name of the Relative: ");
+                                                gets(s.rname);
                                                 printf("\nEnter the new Blood group of the Employee: ");
                                                 scanf("%s",s.bg);
                                                 printf("\nEnter the new age of the Employee: ");
@@ -496,10 +513,14 @@ void emp()
                                                 scanf("%s",s.b.street);
                                                 printf("\n\tEnter the city: ");
                                                 scanf("%s",s.b.city);
+                                                printf("\n\tEnter the pin code: ");
+                                                scanf("%s",s.b.pin);
                                                 printf("\n\tEnter the state: ");
                                                 scanf("%s",s.b.state);
                                                 printf("\nEnter the new phone number of the Employee: ");
                                                 scanf("%s",s.ph);
+                                                printf("\nEnter the new additional phone number of the Employee: ");
+                                                scanf("%s",s.rph);
                                                 fseek(fs,-recsize1,SEEK_CUR);
                                                 fwrite(&s,recsize1,1,fs);
                                                 break;
@@ -527,14 +548,15 @@ void emp()
                                                     puts(s.uid);
                                                     printf("\nName of the Employee : ");
                                                     puts(s.name);
-                                                    printf("\nName of the Guardian : ");
-                                                    puts(s.fname);
+                                                    printf("\nName of the Relative : ");
+                                                    puts(s.rname);
                                                     printf("\nAge : %d",s.age);
                                                     printf("\nSalary: %lf",s.salary);
                                                     printf("\nGender : %c",s.gender);
                                                     printf("\nBlood group: %s",s.bg);
-                                                    printf("\nAddress  : %d,%s,%s,%s",s.b.hno,s.b.street,s.b.city,s.b.state);
-                                                    printf("\nphone number : +91-%s",s.ph);
+                                                    printf("\nAddress  : %d,%s,%s,%s,%s",s.b.hno,s.b.street,s.b.city,s.b.pin,s.b.state);
+                                                    printf("\nPhone number : +91-%s",s.ph);
+                                                    printf("\nAdditional phone number : +91-%s",s.rph);
                                                     printf("\nDesignation : %s",s.desig);
                                                 }
                                         }
@@ -553,14 +575,15 @@ void emp()
                                     puts(s.uid);
                                     printf("\nName of the Employee : ");
                                     puts(s.name);
-                                    printf("\nName of the Guardian : ");
-                                    puts(s.fname);
+                                    printf("\nName of the Relative : ");
+                                    puts(s.rname);
                                     printf("\nAge : %d",s.age);
                                     printf("\nSalary: %lf",s.salary);
                                     printf("\nGender : %c",s.gender);
                                     printf("\nBlood group: %s",s.bg);
-                                    printf("\nAddress  : %d,%s,%s,%s",s.b.hno,s.b.street,s.b.city,s.b.state);
-                                    printf("\nphone number : +91-%s",s.ph);
+                                    printf("\nAddress  : %d,%s,%s,%s,%s",s.b.hno,s.b.street,s.b.city,s.b.pin,s.b.state);
+                                    printf("\nPhone number : +91-%s",s.ph);
+                                    printf("\nAdditional phone number : +91-%s",s.rph);
                                     printf("\nDesignation : %s",s.desig);
                                     printf("\n----------------------------------------------------\n");
                                 }
