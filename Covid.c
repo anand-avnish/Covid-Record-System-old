@@ -80,7 +80,7 @@ void menu()//Menu of program
     printf("\n\t\t*************************************************");
     printf("\n\n\n\n\n\n\n");
     printf("\t\t1.COVID PATIENT");//pat()
-    printf("\n\t\t2.STAFF");//emp()
+    printf("\n\t\t2.EMPLOYEE");//emp()
     printf("\n\t\t3.INVENTORY");//inv()
     printf("\n\t\t0.EXIT");//exit
     printf("\n\n\tEnter your choice: ");
@@ -453,6 +453,7 @@ void emp()
                                     scanf("%s",s.bg);
                                     printf("\nEnter the age of the Employee: ");
                                     scanf("%d",&s.age);
+                                    fflush(stdin);
                                     printf("\nEnter the Salary of the Employee: ");
                                     scanf("%lf",&s.salary);
                                     printf("\nEnter the address of the Employee:\n");
