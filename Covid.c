@@ -47,7 +47,7 @@ struct patient//Structure for patient
 struct staff//Structure for staff data entry
 {
     char name[40];//Staff Name
-    char fname[40];//Staff relative name
+    char rname[40];//Staff relative name
     int age;//Staff Age
     char bg[3];//Blood Group
     char gender;//Staff Gender
